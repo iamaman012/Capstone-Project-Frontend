@@ -1,0 +1,10 @@
+.custom-table th.align-left {
+    width: 30%;
+    text-align: left;
+    border-right: 2px solid #dee2e6;
+  }
+  
+  .custom-table td.align-right {
+    width: 70%;
+    text-align: left;
+  }

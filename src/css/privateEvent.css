@@ -1,0 +1,24 @@
+/* PrivateEvent.css */
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-container .form-label {
+    font-weight: bold;
+  }
+  
+  .form-container .form-control,
+  .form-container .form-select {
+    margin-bottom: 15px;
+  }
+  
+  .form-container .btn-primary {
+    width: 100%;
+    padding: 10px;
+  }
