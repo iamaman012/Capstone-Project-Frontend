@@ -1,6 +1,7 @@
 import React from "react";
 import "./css/bootstrap.min.css";
 import "./css/style.css";
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -14,15 +15,13 @@ const Footer = () => {
             <div className="col-lg-6 col-md-6 d-flex justify-content-around">
               <div>
                 <h5 className="text-white mb-4">Quick Links</h5>
-                <a className="btn btn-link text-white-50" href="about.html">
+                <NavLink className="btn btn-link text-white-50" to="/about">
                   About Us
-                </a>
-                <a className="btn btn-link text-white-50" href="contact.html">
-                  Contact Us
-                </a>
-                <a className="btn btn-link text-white-50" href="index.html">
+                </NavLink>
+               
+                <NavLink className="btn btn-link text-white-50" to="/">
                   Home
-                </a>
+                </NavLink>
               </div>
               <div>
                 <h5 className="text-white mb-4">Contact</h5>
@@ -39,16 +38,16 @@ const Footer = () => {
                   aaseaman01@gmail.com
                 </p>
                 <div className="d-flex pt-2">
-                  <a className="btn btn-outline-light btn-social" href>
+                  <a className="btn btn-outline-light btn-social" to>
                     <i className="fab fa-twitter" />
                   </a>
-                  <a className="btn btn-outline-light btn-social" href>
+                  <a className="btn btn-outline-light btn-social" to>
                     <i className="fab fa-facebook-f" />
                   </a>
-                  <a className="btn btn-outline-light btn-social" href>
+                  <a className="btn btn-outline-light btn-social" to>
                     <i className="fab fa-youtube" />
                   </a>
-                  <a className="btn btn-outline-light btn-social" href>
+                  <a className="btn btn-outline-light btn-social" to>
                     <i className="fab fa-linkedin-in" />
                   </a>
                 </div>
@@ -61,9 +60,9 @@ const Footer = () => {
             <div className="row ">
               <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
                 ©{" "}
-                <a className="border-bottom" href="#">
-                  Job Entry
-                </a>
+                <NavLink className="border-bottom" to="#">
+                  Event Hub
+                </NavLink>
                 , All Right Reserved. Made with ❤ by Aman Agrawal
               </div>
             

@@ -14,12 +14,34 @@ const AdminDashboard = () => {
             <AdminMenu />
           </div>
           <div className="col-md-9">
-            <h3>Admin Details</h3>
+            <h2 className='text-primary'>Admin Details</h2>
             <div className="card w-75 p-3">
-              <h3> Admin Name : {auth?.fullName}</h3>
-              <h3> Admin Email : {auth?.email}</h3>
-              <h3> Admin Contact : {auth?.phone}</h3>
-            </div>
+              <div key={auth.userId} className="col-md-12">
+                <table className="table table-bordered mb-3 custom-table">
+                  <thead className="thead-light">
+                    <tr className="bg-primary text-light">
+                      <th colSpan="2" className="text-center">
+                        {auth.fullName}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th className="align-left">Email</th>
+                      <td className="align-right">
+                        {auth.email}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th className="align-left">Role</th>
+                      <td className="align-right">
+                        {auth.role}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+              </div>
           </div>
         </div>
       </div>

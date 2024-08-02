@@ -2,8 +2,20 @@ import React from "react";
 import Layout from "../components/Layout/Layout";
 import "../css/home.css";
 import Accordian from "../components/Accordian";
+import $ from "jquery";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+    const navigate = useNavigate();
+    function handleQuotation(eventType) {
+        if(eventType==="Public"){
+          navigate('/event/public-quotation');
+        }
+        else
+        navigate("/event/private-quotation");
+      }
+   
     return (
         <div>
             <Layout>
@@ -86,7 +98,8 @@ const Home = () => {
                                 best event management company.
                             </p>
                         </div>
-                        <div className="col-md-4 mt-2 ">
+                       
+                        <div className="col-md-4 mt-4 ">
                             <Accordian/>
                            
                         </div>
@@ -103,9 +116,17 @@ const Home = () => {
                             <h5 className="text-primary">Social Events & Party Planning :</h5>
                             <p>Private parties and social events can be intimate and low-key or large and lively. Showmakerz has planned all types of special events. We specialize in creating memorable, customized parties to fit within your budget like anniversary parties, social get to gather, birthday celebrations, corporate parties or any special occasion.</p>
                             <p>If you are looking to organize any event, brand promotional campaigns, wedding or any other celebration, allow us to take your vision to the next level. We will take care of every detail so you can relax and enjoy your event. Please share your query with us and our team of expert event planner will revert you back with various options and cost estimation.</p>
-                            <hr></hr>
+                            
                         </div>
+                        
+                        <div className="row mt-2 mb-2">
+                        <div className="col-md-6"><button onClick={()=>handleQuotation("Public")} className="btn btn-primary w-100 py-2">Apply for Public Event Quotation</button></div>
+                        <div className="col-md-6"><button onClick={()=>handleQuotation("Private")} className="btn btn-primary w-100 py-2">Apply for Private Event Quotation</button></div>
                     </div>
+                        <hr></hr>
+                        
+                    </div>
+                    
                     <div className="row g-2">
                         <div className="col-md-12">
                             <h3 className="text-center text-primary">Our Gallery</h3>
@@ -155,8 +176,11 @@ const Home = () => {
                         </div>
 
                     </div>
+                    
                 </div>
             </Layout>
+            
+        
         </div>
     );
 };

@@ -3,13 +3,16 @@ import axios from 'axios';
 import Layout from '../../components/Layout/Layout';
 import AdminMenu from '../../components/AdminMenu';
 
-const ScheduledPrivateEvent = () => {
+const AdminScheduledEvent = ({eventType}) => {
   const [scheduledEvents, setScheduledEvents] = useState([]);
 
   useEffect(() => {
     const fetchScheduledEvents = async () => {
       try {
-        const response = await axios.get('http://localhost:5209/api/Event/get/scheduled/pvt');
+        const url = eventType === 'Public'
+        ? `http://localhost:5209/api/Event/getAll/scheduled/pub`
+        : 'http://localhost:5209/api/Event/get/scheduled/pvt';
+        const response = await axios.get(url);
         setScheduledEvents(response.data);
       } catch (error) {
         console.error('There was an error fetching the data!', error);
@@ -17,7 +20,7 @@ const ScheduledPrivateEvent = () => {
     };
 
     fetchScheduledEvents();
-  }, []);
+  }, [eventType]);
 
   return (
     <Layout>
@@ -27,24 +30,28 @@ const ScheduledPrivateEvent = () => {
             <AdminMenu />
           </div>
           <div className="col-md-9">
-            <h3>Scheduled Private Events</h3>
+            <h3 className='text-primary'>Scheduled {eventType} Events</h3>
+            <div className="row">
             {scheduledEvents.length > 0 ? (
               scheduledEvents.map(event => (
-                <div className="row" key={event.id}>
-                  <div className="col-md-12">
-                    <div className="card mb-3">
-                      <div className="card-header bg-primary text-light text-center">
-                        {event.eventName}
-                      </div>
-                      <div className="card-body">
+                <div className='card w-75 m-2 p-3'>
+                  <div key={event.id} className="col-md-12">
+                    
+                      
+                      
                         <table className="table table-bordered custom-table">
+                        <thead className="thead-light">
+                      <tr className='bg-primary text-light'>
+                        <th colSpan="2" className="text-center">{event.eventName}</th>
+                      </tr>
+                    </thead>
                           <tbody>
                             <tr>
                               <th className="align-left">Event Name</th>
                               <td className="align-right">{event.eventName}</td>
                             </tr>
                             <tr>
-                              <th className="align-left">Host Name</th>
+                              <th className="align-left">User Name</th>
                               <td className="align-right">{event.userName}</td>
                             </tr>
                             <tr>
@@ -75,16 +82,46 @@ const ScheduledPrivateEvent = () => {
                               <th className="align-left">Venue Type</th>
                               <td className="align-right">{event.venueType}</td>
                             </tr>
+                            {eventType === 'Public' && (
+                              <>
+                                <tr>
+                                  <th className="align-left">Host Name</th>
+                                  <td className="align-right">{event.hostName}</td>
+                                </tr>
+                                <tr>
+                                  <th className="align-left">User Event Name</th>
+                                  <td className="align-right">{event.userEventName}</td>
+                                </tr>
+                                <tr>
+                                  <th className="align-left">Total Seats</th>
+                                  <td className="align-right">{event.totalSeats}</td>
+                                </tr>
+                                <tr>
+                                  <th className="align-left">Ticket Price</th>
+                                  <td className="align-right">{event.ticketPrice}</td>
+                                </tr>
+                                <tr>
+                                  <th className="align-left">Remaining Seats</th>
+                                  <td className="align-right">{event.remainingSeats}</td>
+                                </tr>
+                                <tr>
+                                  <th className="align-left">Is Active</th>
+                                  <td className="align-right">{event.isActive?"YES":"NO"}</td>
+                                </tr>
+                              </>
+                            )}
                           </tbody>
                         </table>
                       </div>
                     </div>
-                  </div>
-                </div>
+                    
+                  
+                
               ))
             ) : (
               <p>No scheduled private events found.</p>
             )}
+            </div>
           </div>
         </div>
       </div>
@@ -92,4 +129,4 @@ const ScheduledPrivateEvent = () => {
   );
 };
 
-export default ScheduledPrivateEvent;
+export default AdminScheduledEvent;

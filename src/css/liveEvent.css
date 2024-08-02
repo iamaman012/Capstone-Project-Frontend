@@ -1,0 +1,20 @@
+.hover-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .hover-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+/* Add this CSS to your stylesheet */
+.fixed-height-card {
+    height: 390px; /* Set your desired height */
+    display: flex;
+    flex-direction: column;
+}
+
+.fixed-height-img {
+    height: 200px; /* Set your desired height */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+}

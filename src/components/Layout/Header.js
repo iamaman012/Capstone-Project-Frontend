@@ -32,8 +32,8 @@ const Header = () => {
 
   return (
     <nav className="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0" id="navBar">
-      <NavLink to="/" className="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
-        <h1 className="m-0 text-primary"> Events</h1>
+      <NavLink to="/ " className="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+        <h1 className="m-0 text-primary"> EventHub</h1>
       </NavLink>
       <button type="button" className="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span className="navbar-toggler-icon" />
@@ -50,17 +50,19 @@ const Header = () => {
               <NavLink to="/events/corporate" className="dropdown-item" onClick={() => handleSelectEvent('Corporate Events')}>Corporate Events</NavLink>
               <NavLink to="/events/wedding" className="dropdown-item" onClick={() => handleSelectEvent('Wedding Events')}>Wedding Events</NavLink>
               <NavLink to="/events/birthdays" className="dropdown-item" onClick={() => handleSelectEvent('Birthday Parties')}>Birthday Parties</NavLink>
+              <NavLink to="/events/public" className="dropdown-item"  onClick={() => handleSelectEvent('Public Event')} >Public Events</NavLink>
             </div>
             
           </div>
-          <NavLink to="/events/public" className="nav-item nav-link" >Public Events</NavLink>
+          {/* <NavLink to="/events/public" className="nav-item nav-link" >Public Events</NavLink> */}
+          <NavLink to="/events/live" className="nav-item nav-link" >Live Events</NavLink>
           <NavLink to="/about" className="nav-item nav-link">About</NavLink>
           {
             !auth.token ? (
               <NavLink to="/login" className="nav-item nav-link" id="login-register">Login/Register</NavLink>
             ) : (
               <div className="nav-item dropdown">
-              <NavLink to="#" className="nav-link dropdown-toggle" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <NavLink className="nav-link dropdown-toggle" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {auth?.fullName}
               </NavLink>
               <div className="dropdown-menu" aria-labelledby="userDropdown">

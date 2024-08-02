@@ -34,9 +34,10 @@ const PrivateQuotation = () => {
             <AdminMenu />
           </div>
           <div className="col-md-9">
-            <h3>Private Event Quotations</h3>
+            <h3 className='text-primary'>Private Event Quotations</h3>
             <div className="row">
               {quotations.map((quotation, index) => (
+                <div className='card w-75 m-2 p-3'>
                 <div key={index} className="col-md-12">
                   <table className="table table-bordered mb-3 custom-table">
                     <thead className="thead-light">
@@ -55,7 +56,15 @@ const PrivateQuotation = () => {
                       </tr>
                       <tr>
                         <th className="align-left">Requested Date</th>
-                        <td className="align-right">{new Date(quotation.requestedDate).toLocaleString()}</td>
+                        <td className="align-right"> {new Date(quotation.requestedDate).toLocaleDateString('en-US', {
+                                            month: 'long',
+                                            day: 'numeric',
+                                            year: 'numeric',
+                                        })}{' '}
+                                        {new Date(quotation.requestedDate).toLocaleTimeString('en-US', {
+                                            hour: '2-digit',
+                                            minute: '2-digit',
+                                        })}</td>
                       </tr>
                       <tr>
                         <th className="align-left">Expected People Count</th>
@@ -83,11 +92,27 @@ const PrivateQuotation = () => {
                       </tr>
                       <tr>
                         <th className="align-left">Event Start Date</th>
-                        <td className="align-right">{new Date(quotation.eventStartDate).toLocaleString()}</td>
+                        <td className="align-right">{new Date(quotation.eventStartDate).toLocaleDateString('en-US', {
+                                            month: 'long',
+                                            day: 'numeric',
+                                            year: 'numeric',
+                                        })}{' '}
+                                        {new Date(quotation.eventStartDate).toLocaleTimeString('en-US', {
+                                            hour: '2-digit',
+                                            minute: '2-digit',
+                                        })}</td>
                       </tr>
                       <tr>
                         <th className="align-left">Event End Date</th>
-                        <td className="align-right">{new Date(quotation.eventEndDate).toLocaleString()}</td>
+                        <td className="align-right">{new Date(quotation.eventEndDate).toLocaleDateString('en-US', {
+                                            month: 'long',
+                                            day: 'numeric',
+                                            year: 'numeric',
+                                        })}{' '}
+                                        {new Date(quotation.eventEndDate).toLocaleTimeString('en-US', {
+                                            hour: '2-digit',
+                                            minute: '2-digit',
+                                        })}</td>
                       </tr>
                       <tr>
                         <th className="align-left">Event Timing</th>
@@ -99,6 +124,7 @@ const PrivateQuotation = () => {
                      
                     </tbody>
                   </table>
+                </div>
                 </div>
               ))}
             </div>

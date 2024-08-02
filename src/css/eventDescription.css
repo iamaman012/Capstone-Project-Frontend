@@ -1,0 +1,59 @@
+.event-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .event-image {
+    width: 80%;
+    height: auto;
+    max-height: 400px;
+    margin: 0 auto;
+    border: solid 2px;
+    padding: 10px;
+  }
+  
+  .buy-ticket-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .ticket-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .ticket-options button {
+    margin: 0 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .ticket-options span {
+    font-size: 18px;
+    margin: 0 10px;
+  }
+  
+  .total-price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px;
+    /* border-top: 1px solid #ccc; */
+    background-color: #cccccc29;
+  }
+  
+  .price-info {
+    text-align: left;
+  }
+  
+  .proceed-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }

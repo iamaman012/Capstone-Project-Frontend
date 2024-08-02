@@ -8,7 +8,7 @@ import '../css/privateEvent.css'; // Import the CSS file
 
 const PrivateEvent = () => {
   const [auth] = useAuth();
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     eventName: '',
     expectedPeopleCount: '',
     venueType: '',
@@ -18,8 +18,9 @@ const PrivateEvent = () => {
     specialInstructions: '',
     eventStartDate: '',
     eventEndDate: '',
-    eventTiming: ''
-  });
+    eventTiming: 'Morning'
+  };
+  const [formData, setFormData] = useState(initialFormData);
 
   const [errors, setErrors] = useState({});
 
@@ -76,6 +77,7 @@ const PrivateEvent = () => {
         });
 
         toast.success('Form submitted successfully');
+        setFormData(initialFormData);
       } catch (error) {
         console.error('Error:', error);
         toast.error('Failed to submit form details');
@@ -86,6 +88,7 @@ const PrivateEvent = () => {
   return (
     <div>
       <Layout>
+        <h3 className='text-primary text-center m-3'> Private Quotation Request</h3>
         <form onSubmit={handleSubmit} className="container form-container">
           <div className="row mb-3">
             <label className="col-sm-2 col-form-label form-label">Event Name:</label>
@@ -157,18 +160,18 @@ const PrivateEvent = () => {
           <div className="row mb-3">
             <label className="col-sm-2 col-form-label form-label">Event Start Date:</label>
             <div className="col-sm-10">
-              <input type="date" className="form-control" name="eventStartDate" value={formData.eventStartDate} onChange={handleChange}  />
+              <input type="datetime-local" className="form-control" name="eventStartDate" value={formData.eventStartDate} onChange={handleChange}  />
               {errors.eventStartDate && <div className="text-danger">{errors.eventStartDate}</div>}
             </div>
           </div>
           <div className="row mb-3">
             <label className="col-sm-2 col-form-label form-label">Event End Date:</label>
             <div className="col-sm-10">
-              <input type="date" className="form-control" name="eventEndDate" value={formData.eventEndDate} onChange={handleChange}  />
+              <input type="datetime-local" className="form-control" name="eventEndDate" value={formData.eventEndDate} onChange={handleChange}  />
               {errors.eventEndDate && <div className="text-danger">{errors.eventEndDate}</div>}
             </div>
           </div>
-          <div className="row mb-3">
+          {/* <div className="row mb-3">
             <label className="col-sm-2 col-form-label form-label">Event Timing:</label>
             <div className="col-sm-10">
               <select className="form-select" name="eventTiming" value={formData.eventTiming} onChange={handleChange} >
@@ -180,7 +183,7 @@ const PrivateEvent = () => {
               </select>
               {errors.eventTiming && <div className="text-danger">{errors.eventTiming}</div>}
             </div>
-          </div>
+          </div> */}
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
       </Layout>

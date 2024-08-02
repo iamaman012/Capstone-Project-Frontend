@@ -25,6 +25,8 @@ const PublicEventRequest = () => {
         endDate: '',
         timing: '',
         venue: '',
+        city: '',
+        location: '',
       };
       const [formData, setFormData] = useState(initialFormData);
 
@@ -69,6 +71,7 @@ const PublicEventRequest = () => {
     if (!formData.timing) tempErrors.timing = "Timing is required";
     if (!formData.venue) tempErrors.venue = "Venue is required";
     if (!formData.city) tempErrors.city = "City is required";
+    if (!formData.location) tempErrors.location = "Location is required";
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
@@ -97,7 +100,7 @@ const PublicEventRequest = () => {
     <div>
       <Layout>
         <div className="container mt-5">
-          <h2>Public Event Request</h2>
+          <h2 className='text-center text-primary'>Public Quotation Request</h2>
           <form onSubmit={handleSubmit}>
             <div className="row">
               <div className="col-md-6 mb-3">
@@ -168,7 +171,7 @@ const PublicEventRequest = () => {
               </div>
             </div>
             <div className="row">
-              <div className="col-md-6 mb-3">
+              <div className="col-md-4 mb-3">
                 <label htmlFor="venue">Venue</label>
                 <select className="form-control" id="venue" name="venue" value={formData.venue} onChange={handleChange}>
               <option value="">Select a venue</option>
@@ -177,7 +180,12 @@ const PublicEventRequest = () => {
             </select>
                 {errors.venue && <div className="error">{errors.venue}</div>}
               </div>
-              <div className="col-md-6 mb-3">
+              <div className="col-md-4 mb-3">
+                <label htmlFor="location">Location</label>
+                <input type="text" className="form-control" id="location" name="location" value={formData.location} onChange={handleChange} />
+                {errors.location && <div className="error">{errors.location}</div>}
+              </div>
+              <div className="col-md-4 mb-3">
                 <label htmlFor="city">City</label>
                 <input type="text" className="form-control" id="city" name="city" value={formData.city} onChange={handleChange} />
                 {errors.city && <div className="error">{errors.city}</div>}

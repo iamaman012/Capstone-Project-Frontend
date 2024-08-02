@@ -46,14 +46,14 @@ const QuotationResponse = ({eventtype}) => {
   return (
     <div>
       <Layout>
-        <div className="container-fluid m-3 p-3 dashboard">
+        <div className="container-fluid m-3 p-3 dashboard ">
           <div className="row">
             <div className="col-md-3">
               <AdminMenu />
             </div>
             <div className="col-md-9">
-              <h3>{eventtype} Event Quotation Response</h3>
-              <form onSubmit={handleSubmit} >
+              <h3 className='text-center text-primary'>{eventtype} Event Quotation Response</h3>
+              <form className='w-50' onSubmit={handleSubmit} >
                 <div className="form-group">
                   <label htmlFor="quotedAmount">Quoted Amount</label>
                   <input

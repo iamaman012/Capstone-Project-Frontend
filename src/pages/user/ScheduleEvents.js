@@ -4,14 +4,17 @@ import Layout from '../../components/Layout/Layout';
 import UserMenu from '../../components/UserMenu';
 import { useAuth } from '../../context/Auth';
 
-const SchedulePrivateEvents = () => {
+const ScheduleEvents = ({eventType}) => {
   const [events, setEvents] = useState([]);
   const [auth] = useAuth();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5209/api/Event/get/scheduled/pvt/ByuserId?userId=${auth.userId}`);
+        const url = eventType === 'Public'
+        ? `http://localhost:5209/api/Event/get/scheduled/pub/ByuserId?userId=${auth.userId}`
+         : `http://localhost:5209/api/Event/get/scheduled/pvt/ByuserId?userId=${auth.userId}`;
+        const response = await axios.get(url);
         setEvents(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -19,7 +22,7 @@ const SchedulePrivateEvents = () => {
     };
 
     fetchData();
-  }, []);
+  }, [eventType]);
 
   return (
     <div>
@@ -30,10 +33,11 @@ const SchedulePrivateEvents = () => {
               <UserMenu />
             </div>
             <div className="col-md-9">
-              <h3>Scheduled Private Events</h3>
-              <div className="card w-75 p-3">
-                <h3>Quotation Response</h3>
-                {events.map(event => (
+              <h3 className='text-primary'>Scheduled {eventType} Events</h3>
+              
+                {events.length > 0 ? (
+                events.map(event => (
+                  <div className="card w-75 p-3 mt-3">
                   <table key={event.scheduledPrivateEventId} className="table table-bordered mb-3 custom-table">
                     <thead className="thead-light">
                       <tr className='bg-primary text-light'>
@@ -65,11 +69,45 @@ const SchedulePrivateEvents = () => {
                         <th className="align-left">Venue Type</th>
                         <td className="align-right">{event.venueType}</td>
                       </tr>
+                      {
+                        eventType === 'Public' && (
+                          <>
+                            <tr>
+                              <th className="align-left">Host Name</th>
+                              <td className="align-right">{event.hostName}</td>
+                            </tr>
+                            <tr>
+                              <th className="align-left">User Event Name</th>
+                              <td className="align-right">{event.userEventName}</td>
+                            </tr>
+                            <tr>
+                              <th className="align-left">Total Seats</th>
+                              <td className="align-right">{event.totalSeats}</td>
+                            </tr>
+                            <tr>
+                              <th className="align-left">Ticket Price</th>
+                              <td className="align-right">{event.ticketPrice}</td>
+                            </tr>
+                            <tr>
+                              <th className="align-left">Remaining Seats</th>
+                              <td className="align-right">{event.remainingSeats}</td>
+                            </tr>
+                            <tr>
+                              <th className="align-left">Is Active</th>
+                              <td className="align-right">{event.isActive?"Yes":"No"}</td>
+                            </tr>
+                          </>
+                        )
+                      }
                     </tbody>
                   </table>
-                ))}
+                  </div>
+                ))
+                ):(<p className='text-danger'> No scheduled events to be shown</p>)
+                }
+
               </div>
-            </div>
+            
           </div>
         </div>
       </Layout>
@@ -77,4 +115,4 @@ const SchedulePrivateEvents = () => {
   );
 };
 
-export default SchedulePrivateEvents;
+export default ScheduleEvents;

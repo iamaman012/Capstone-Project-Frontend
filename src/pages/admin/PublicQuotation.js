@@ -3,6 +3,7 @@ import axios from 'axios';
 import Layout from './../../components/Layout/Layout';
 import AdminMenu from './../../components/AdminMenu';
 import { NavLink } from 'react-router-dom';
+import "../../css/privateQuotation.css"
 
 const PublicQuotation = () => {
   const [quotations, setQuotations] = useState([]);
@@ -21,24 +22,30 @@ const PublicQuotation = () => {
   }, []);
 
   return (
-    <div>
+    
       <Layout>
-        <div className="container-fluid m-3 p-3 dashboard">
+        <div className="container-fluid m-2 p-3 dashboard">
           <div className="row">
             <div className="col-md-3">
               <AdminMenu />
             </div>
             <div className="col-md-9">
-              <h3>Public Event Quotation</h3>
+              <h3 className='text-primary'>Public Event Quotation</h3>
               <div className="row">
                 {quotations.map((quotation, index) => (
-                  <div key={index} className="col-md-12">
-                    <div className="card mb-3">
-                      <div className="card-header bg-primary text-light text-center">
+                  
+                    <div className="card w-75 m-2 p-3">
+                      <div key={index} className="col-md-12">
+                      {/* <div className="card-header bg-primary text-light text-center">
                         {quotation.eventName}
                       </div>
-                      <div className="card-body">
+                      <div className="card-body"> */}
                         <table className="table table-bordered custom-table">
+                        <thead className="thead-light">
+                      <tr className='bg-primary text-light'>
+                        <th colSpan="2" className="text-center">{quotation.eventName}</th>
+                      </tr>
+                    </thead>
                           <tbody>
                             <tr>
                               <th className="align-left">Event Name</th>
@@ -97,14 +104,15 @@ const PublicQuotation = () => {
                         </table>
                       </div>
                     </div>
-                  </div>
+                    
+                  
                 ))}
               </div>
             </div>
           </div>
         </div>
       </Layout>
-    </div>
+    
   );
 };
 
