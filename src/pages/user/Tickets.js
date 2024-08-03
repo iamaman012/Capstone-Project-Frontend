@@ -43,7 +43,7 @@ const Tickets = () => {
                         <div className="card-body">
                           <p className="card-text"><strong>Ticket ID:</strong> {ticket.ticketId}</p>
                           <p className="card-text">Start Date: {new Date(ticket.startDate).toLocaleString()}</p>
-                          <p className="card-text">Event Timing: {ticket.eventTiming}</p>
+                          {/* <p className="card-text">Event Timing: {ticket.eventTiming}</p> */}
                           <p className="card-text">Location: {ticket.location}</p>
                           <p className="card-text">City: {ticket.city}</p>
                           <p className="card-text">Total Seats: {ticket.totalSeats}</p>

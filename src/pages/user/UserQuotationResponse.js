@@ -12,6 +12,7 @@ const UserQuotationResponse = ({ eventType }) => {
   const [auth] = useAuth();
   const [userEventName, setUserEventName] = useState('');
   const [isEventScheduled, setIsEventScheduled] = useState(false);
+  const [isConfirmed,setIsConfirmed] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,7 +32,7 @@ const UserQuotationResponse = ({ eventType }) => {
     };
 
     fetchData();
-  }, [eventType]);
+  }, [eventType,isConfirmed]);
 
   const handleAnotherAction = async (publicQuotationResponseId, eventName, publicQuotationRequestId) => {
     const data = {
@@ -46,6 +47,7 @@ const UserQuotationResponse = ({ eventType }) => {
       const response = await axios.post('http://localhost:5209/api/Event/add/scheduled/pub', data);
       toast.success('Event scheduled successfully');
       setIsEventScheduled(true);  
+      setIsConfirmed(true);
       // navigate("/dashboard/user/public-quotation/response")
     
     } catch (error) {
@@ -72,6 +74,7 @@ const UserQuotationResponse = ({ eventType }) => {
       );
       toast.success("Event scheduled successfully");
       setIsEventScheduled(true);
+      setIsConfirmed(true);
       // navigate("/dashboard/user/private-quotation/response")
       
       
@@ -94,9 +97,9 @@ const UserQuotationResponse = ({ eventType }) => {
               
                
                 {quotations.length > 0 ? (
-                  <div className="row">
+                  <div className="row w-75">
                     {quotations.map((quotation, index) => (
-                      <div className="card w-75 p-3 mt-3">
+                      <div className="card w-100 p-3 mt-3">
                       <div key={index} className="col-md-12">
                         <table className="table table-bordered mb-3 custom-table">
                           <thead className="thead-light">

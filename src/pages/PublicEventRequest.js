@@ -23,7 +23,7 @@ const PublicEventRequest = () => {
         ticketPrice: '',
         startDate: '',
         endDate: '',
-        timing: '',
+        timing: 'Morning',
         venue: '',
         city: '',
         location: '',
@@ -68,10 +68,14 @@ const PublicEventRequest = () => {
     if (!formData.ticketPrice || formData.ticketPrice <= 0) tempErrors.ticketPrice = "Ticket Price must be greater than 0";
     if (!formData.startDate) tempErrors.startDate = "Start Date is required";
     if (!formData.endDate) tempErrors.endDate = "End Date is required";
-    if (!formData.timing) tempErrors.timing = "Timing is required";
+    else{
+      if (new Date(formData.startDate) > new Date(formData.endDate)) tempErrors.endDate = "End Date should be greater than Start Date";
+    }
+    // if (!formData.timing) tempErrors.timing = "Timing is required";
     if (!formData.venue) tempErrors.venue = "Venue is required";
     if (!formData.city) tempErrors.city = "City is required";
     if (!formData.location) tempErrors.location = "Location is required";
+    
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
@@ -158,7 +162,7 @@ const PublicEventRequest = () => {
                 <input type="number" className="form-control" id="ticketPrice" name="ticketPrice" value={formData.ticketPrice} onChange={handleChange} onBlur={handleBlur} />
                 {errors.ticketPrice && <div className="error">{errors.ticketPrice}</div>}
               </div>
-              <div className="col-md-6 mb-3">
+              {/* <div className="col-md-6 mb-3">
                 <label htmlFor="timing">Timing</label>
                 <select className="form-control" id="timing" name="timing" value={formData.timing} onChange={handleChange}>
                 <option value="">Select a timing</option>
@@ -168,10 +172,8 @@ const PublicEventRequest = () => {
                 <option value="night">Night</option>
               </select>
                 {errors.timing && <div className="error">{errors.timing}</div>}
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-4 mb-3">
+              </div> */}
+              <div className="col-md-6 mb-3">
                 <label htmlFor="venue">Venue</label>
                 <select className="form-control" id="venue" name="venue" value={formData.venue} onChange={handleChange}>
               <option value="">Select a venue</option>
@@ -180,12 +182,15 @@ const PublicEventRequest = () => {
             </select>
                 {errors.venue && <div className="error">{errors.venue}</div>}
               </div>
-              <div className="col-md-4 mb-3">
+            </div>
+            <div className="row">
+              
+              <div className="col-md-6 mb-3">
                 <label htmlFor="location">Location</label>
                 <input type="text" className="form-control" id="location" name="location" value={formData.location} onChange={handleChange} />
                 {errors.location && <div className="error">{errors.location}</div>}
               </div>
-              <div className="col-md-4 mb-3">
+              <div className="col-md-6 mb-3">
                 <label htmlFor="city">City</label>
                 <input type="text" className="form-control" id="city" name="city" value={formData.city} onChange={handleChange} />
                 {errors.city && <div className="error">{errors.city}</div>}

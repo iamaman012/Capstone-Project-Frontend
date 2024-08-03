@@ -44,6 +44,11 @@ const PrivateEvent = () => {
     if (!formData.specialInstructions) newErrors.specialInstructions = 'Special Instructions are required';
     if (!formData.eventStartDate) newErrors.eventStartDate = 'Event Start Date is required';
     if (!formData.eventEndDate) newErrors.eventEndDate = 'Event End Date is required';
+    else{
+      if(new Date(formData.eventStartDate) > new Date(formData.eventEndDate)){
+        newErrors.eventEndDate = 'Event End Date should be greater than Event Start Date';
+      }
+    }
     if (!formData.eventTiming) newErrors.eventTiming = 'Event Timing is required';
 
     setErrors(newErrors);

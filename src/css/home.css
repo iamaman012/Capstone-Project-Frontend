@@ -13,3 +13,15 @@
     object-fit: cover; /* Ensure image covers the area without distortion */
 }
 
+.corousel-container{
+    border: solid 2px;
+    padding: 20px;
+    width: 100%;
+    height: 450px; /* Set a fixed height */
+    overflow: hidden; /* Ensure any overflow is hidden */
+}
+.corousel-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers the area without distortion */
+}

@@ -114,10 +114,10 @@ const PrivateQuotation = () => {
                                             minute: '2-digit',
                                         })}</td>
                       </tr>
-                      <tr>
+                      {/* <tr>
                         <th className="align-left">Event Timing</th>
                         <td className="align-right">{quotation.eventTiming}</td>
-                      </tr>
+                      </tr> */}
                       {quotation.quotationStatus === 'Pending'?( <tr className='bg-primary text-light text-center'>
                       <th colSpan="2"><NavLink to={`/dashboard/admin/private-quotation/response/${quotation.privateQuotationRequestId}`} className="text-light text-center">Send Response</NavLink></th>
                       </tr>):(null)}

@@ -55,15 +55,31 @@ const ScheduleEvents = ({eventType}) => {
                       </tr>
                       <tr>
                         <th className="align-left">Start Date</th>
-                        <td className="align-right">{new Date(event.eventStartDate).toLocaleString()}</td>
+                        <td className="align-right">{new Date(event.eventStartDate).toLocaleDateString('en-US', {
+                                            month: 'long',
+                                            day: 'numeric',
+                                            year: 'numeric',
+                                        })}{' '}
+                                        {new Date(event.eventStartDate).toLocaleTimeString('en-US', {
+                                            hour: '2-digit',
+                                            minute: '2-digit',
+                                        })}</td>
                       </tr>
                       <tr>
                         <th className="align-left">End Date</th>
-                        <td className="align-right">{new Date(event.eventEndDate).toLocaleString()}</td>
+                        <td className="align-right">{new Date(event.eventEndDate).toLocaleDateString('en-US', {
+                                            month: 'long',
+                                            day: 'numeric',
+                                            year: 'numeric',
+                                        })}{' '}
+                                        {new Date(event.eventEndDate).toLocaleTimeString('en-US', {
+                                            hour: '2-digit',
+                                            minute: '2-digit',
+                                        })}</td>
                       </tr>
                       <tr>
-                        <th className="align-left">Timing</th>
-                        <td className="align-right">{event.eventTiming}</td>
+                        <th className="align-left">Location</th>
+                        <td className="align-right">{event.location}</td>
                       </tr>
                       <tr>
                         <th className="align-left">Venue Type</th>
@@ -72,6 +88,10 @@ const ScheduleEvents = ({eventType}) => {
                       {
                         eventType === 'Public' && (
                           <>
+                           <tr>
+                              <th className="align-left">City</th>
+                              <td className="align-right">{event.city}</td>
+                            </tr>
                             <tr>
                               <th className="align-left">Host Name</th>
                               <td className="align-right">{event.hostName}</td>

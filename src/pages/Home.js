@@ -22,24 +22,24 @@ const Home = () => {
                 <div classname="container" style={{ padding: "30px" }}>
                     <div id="carouselExample" className="carousel slide">
                         <div className="carousel-inner">
-                            <div className="carousel-item active">
+                            <div className="carousel-item active corousel-container border-primary">
                                 <img
-                                    src="https://i.pinimg.com/736x/e3/ad/f9/e3adf9f9d6c0f5a529ec357ea71bcd97.jpg"
-                                    className="d-block w-100"
+                                    src="https://desiweds.com/wp-content/uploads/2021/11/wedding-decorator-style-budget-hero-scaled.jpg"
+                                    className="img-fluid"
                                     alt="..."
                                 />
                             </div>
-                            <div className="carousel-item">
+                            <div className="carousel-item corousel-container border-primary">
                                 <img
-                                    src="https://5.imimg.com/data5/GLADMIN/Default/2023/3/292980365/QI/JC/JC/135181622/exhibition-event-management-service.jpg"
-                                    className="d-block w-100"
+                                    src="https://assets.unileversolutions.com/v1/985812.jpg"
+                                    className="img-fluid"
                                     alt="..."
                                 />
                             </div>
-                            <div className="carousel-item">
+                            <div className="carousel-item corousel-container border-primary">
                                 <img
-                                    src="https://www.visionvivaah.com/blog/wp-content/uploads/2019/10/Best-Event-Management-Company-In-Mumbai.jpg"
-                                    className="d-block w-100"
+                                    src="https://www.alfaazphotography.com/wp-content/uploads/2021/02/Caledon-Country-Club-0047.jpg"
+                                    className="img-fluid"
                                     alt="..."
                                 />
                             </div>

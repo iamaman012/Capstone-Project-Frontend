@@ -60,16 +60,32 @@ const AdminScheduledEvent = ({eventType}) => {
                             </tr>
                             <tr>
                               <th className="align-left">Event Start Date</th>
-                              <td className="align-right">{new Date(event.eventStartDate).toLocaleString()}</td>
+                              <td className="align-right">{new Date(event.eventStartDate).toLocaleDateString('en-US', {
+                                            month: 'long',
+                                            day: 'numeric',
+                                            year: 'numeric',
+                                        })}{' '}
+                                        {new Date(event.eventStartDate).toLocaleTimeString('en-US', {
+                                            hour: '2-digit',
+                                            minute: '2-digit',
+                                        })}</td>
                             </tr>
                             <tr>
                               <th className="align-left">Event End Date</th>
-                              <td className="align-right">{new Date(event.eventEndDate).toLocaleString()}</td>
+                              <td className="align-right">{new Date(event.eventEndDate).toLocaleDateString('en-US', {
+                                            month: 'long',
+                                            day: 'numeric',
+                                            year: 'numeric',
+                                        })}{' '}
+                                        {new Date(event.eventEndDate).toLocaleTimeString('en-US', {
+                                            hour: '2-digit',
+                                            minute: '2-digit',
+                                        })}</td>
                             </tr>
-                            <tr>
+                            {/* <tr>
                               <th className="align-left">Event Timing</th>
                               <td className="align-right">{event.eventTiming}</td>
-                            </tr>
+                            </tr> */}
                             <tr>
                               <th className="align-left">Response Message</th>
                               <td className="align-right">{event.responseMessage}</td>
@@ -82,8 +98,16 @@ const AdminScheduledEvent = ({eventType}) => {
                               <th className="align-left">Venue Type</th>
                               <td className="align-right">{event.venueType}</td>
                             </tr>
+                            <tr>
+                              <th className="align-left">Location</th>
+                              <td className="align-right">{event.location}</td>
+                            </tr>
                             {eventType === 'Public' && (
                               <>
+                               <tr>
+                                  <th className="align-left">City</th>
+                                  <td className="align-right">{event.city}</td>
+                                </tr>
                                 <tr>
                                   <th className="align-left">Host Name</th>
                                   <td className="align-right">{event.hostName}</td>

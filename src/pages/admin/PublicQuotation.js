@@ -61,7 +61,15 @@ const PublicQuotation = () => {
                             </tr>
                             <tr>
                               <th className="align-left">Requested Date</th>
-                              <td className="align-right">{new Date(quotation.requestedDate).toLocaleString()}</td>
+                              <td className="align-right">{new Date(quotation.requestedDate).toLocaleDateString('en-US', {
+                                            month: 'long',
+                                            day: 'numeric',
+                                            year: 'numeric',
+                                        })}{' '}
+                                        {new Date(quotation.requestedDate).toLocaleTimeString('en-US', {
+                                            hour: '2-digit',
+                                            minute: '2-digit',
+                                        })}</td>
                             </tr>
                             <tr>
                               <th className="align-left">Total Seats</th>
@@ -81,15 +89,31 @@ const PublicQuotation = () => {
                             </tr>
                             <tr>
                               <th className="align-left">Event Start Date</th>
-                              <td className="align-right">{new Date(quotation.startDate).toLocaleString()}</td>
+                              <td className="align-right">{new Date(quotation.startDate).toLocaleDateString('en-US', {
+                                            month: 'long',
+                                            day: 'numeric',
+                                            year: 'numeric',
+                                        })}{' '}
+                                        {new Date(quotation.startDate).toLocaleTimeString('en-US', {
+                                            hour: '2-digit',
+                                            minute: '2-digit',
+                                        })}</td>
                             </tr>
                             <tr>
                               <th className="align-left">Event End Date</th>
-                              <td className="align-right">{new Date(quotation.endDate).toLocaleString()}</td>
+                              <td className="align-right">{new Date(quotation.endDate).toLocaleDateString('en-US', {
+                                            month: 'long',
+                                            day: 'numeric',
+                                            year: 'numeric',
+                                        })}{' '}
+                                        {new Date(quotation.endDate).toLocaleTimeString('en-US', {
+                                            hour: '2-digit',
+                                            minute: '2-digit',
+                                        })}</td>
                             </tr>
                             <tr>
-                              <th className="align-left">Event Timing</th>
-                              <td className="align-right">{quotation.timing}</td>
+                              <th className="align-left">Location</th>
+                              <td className="align-right">{quotation.location}</td>
                             </tr>
                             {quotation.quotationStatus === 'Pending' && (
                               <tr className='bg-primary text-light text-center'>

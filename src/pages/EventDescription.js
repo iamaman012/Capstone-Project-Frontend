@@ -25,6 +25,10 @@ const EventDescription = () => {
   };
 
   const incrementTicket = () => {
+    if(ticketCount+1 > event.remainingSeats){
+      toast.error('Only '+event.remainingSeats+' tickets are available');
+      return;
+    }
     setTicketCount(ticketCount + 1);
   };
 
@@ -36,6 +40,7 @@ const EventDescription = () => {
 
   const totalPrice = ticketCount * event.ticketPrice;
   const handleProceed = async () => {
+   
     const ticketData = {
       scheduledPublicEventId: event.scheduledPublicEventId,
       userId: auth.userId, // Replace with actual user ID
