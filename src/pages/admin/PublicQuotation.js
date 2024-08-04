@@ -11,7 +11,7 @@ const PublicQuotation = () => {
   useEffect(() => {
     const fetchQuotations = async () => {
       try {
-        const response = await axios.get('http://localhost:5209/return/pub');
+        const response = await axios.get('https://eventmanagementproject20240804213240.azurewebsites.net/return/pub');
         setQuotations(response.data); // Directly use the array of objects returned by the API
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -31,7 +31,7 @@ const PublicQuotation = () => {
             </div>
             <div className="col-md-9">
               <h3 className='text-primary'>Public Event Quotation</h3>
-              <div className="row">
+              <div className="row w-100">
                 {quotations.map((quotation, index) => (
                   
                     <div className="card w-75 m-2 p-3">

@@ -11,7 +11,7 @@ const LiveEvents = () => {
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const response = await axios.get('http://localhost:5209/api/Event/getAll/scheduled/pub');
+                const response = await axios.get('https://eventmanagementproject20240804213240.azurewebsites.net/api/Event/getAll/scheduled/pub');
                 setEvents(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);

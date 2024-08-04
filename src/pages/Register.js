@@ -51,7 +51,7 @@ const Register = () => {
     if (!hasErrors) {
       try {
         const response = await fetch(
-          "http://localhost:5209/api/Auth/register",
+          "https://eventmanagementproject20240804213240.azurewebsites.net/api/Auth/register",
           {
             method: "POST",
             headers: {

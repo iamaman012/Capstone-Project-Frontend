@@ -12,7 +12,7 @@ const PrivateQuotation = () => {
   useEffect(() => {
     const fetchQuotations = async () => {
       try {
-        const response = await axios.get('http://localhost:5209/api/Quotation/return/pvt');
+        const response = await axios.get('https://eventmanagementproject20240804213240.azurewebsites.net/api/Quotation/return/pvt');
         setQuotations(response.data);
       } catch (error) {
         console.error('Error fetching the quotations:', error);

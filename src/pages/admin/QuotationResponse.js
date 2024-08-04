@@ -15,8 +15,8 @@ const QuotationResponse = ({eventtype}) => {
     e.preventDefault()
     try {
       const apiUrl = eventtype === 'Public'
-      ? 'http://localhost:5209/api/Quotation/add/pub/response'
-      : 'http://localhost:5209/api/Quotation/add/pvt/response';
+      ? 'https://eventmanagementproject20240804213240.azurewebsites.net/api/Quotation/add/pub/response'
+      : 'https://eventmanagementproject20240804213240.azurewebsites.net/api/Quotation/add/pvt/response';
 
     const requestBody = eventtype === 'Public'
       ? {

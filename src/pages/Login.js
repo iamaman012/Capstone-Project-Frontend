@@ -37,7 +37,7 @@ const Login = () => {
     if (email && password) {
       try {
         console.log(email, password);
-        const response = await axios.post('http://localhost:5209/api/Auth/login', { email, password });
+        const response = await axios.post('https://eventmanagementproject20240804213240.azurewebsites.net/api/Auth/login', { email, password });
 
         if (response.status === 200) {
           localStorage.setItem('auth', JSON.stringify(response.data));

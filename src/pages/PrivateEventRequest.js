@@ -60,14 +60,14 @@ const PrivateEvent = () => {
     if (validateForm()) {
       try {
         // Fetch the event ID
-        const response = await axios.get('http://localhost:5209/api/Event/getid', {
+        const response = await axios.get('https://eventmanagementproject20240804213240.azurewebsites.net/api/Event/getid', {
           params: { eventName: formData.eventName }
         });
 
         const eventId = response.data;
 
         // Submit the form details
-        await axios.post('http://localhost:5209/api/Quotation/add/pvt', {
+        await axios.post('https://eventmanagementproject20240804213240.azurewebsites.net/api/Quotation/add/pvt', {
           userId: auth.userId,
           eventId,
           expectedPeopleCount: formData.expectedPeopleCount,

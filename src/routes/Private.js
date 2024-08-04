@@ -12,7 +12,7 @@ export default function PrivateRoute() {
 
   useEffect(() => {
     const authCheck = async () => {
-      const res = await axios.get("http://localhost:5209/api/Auth/verify",{
+      const res = await axios.get("https://eventmanagementproject20240804213240.azurewebsites.net/api/Auth/verify",{
         headers: {
           Authorization: `Bearer ${auth.token}`,
         },

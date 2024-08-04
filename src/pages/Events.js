@@ -14,9 +14,9 @@ const Events = (props) => {
       try {
         let response;
         if (category!=="Public") {
-          response = await axios.get(`http://localhost:5209/api/Event/getall?category=${category}`);
+          response = await axios.get(`https://eventmanagementproject20240804213240.azurewebsites.net/api/Event/getall?category=${category}`);
         } else {
-          response = await axios.get('http://localhost:5209/api/Event/getAll/publicEvents');
+          response = await axios.get('https://eventmanagementproject20240804213240.azurewebsites.net/api/Event/getAll/publicEvents');
         }
         const data = response.data;
         console.log(data); // Log the fetched data

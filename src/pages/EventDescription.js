@@ -49,7 +49,7 @@ const EventDescription = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5209/api/Ticket/add', {
+      const response = await fetch('https://eventmanagementproject20240804213240.azurewebsites.net/api/Ticket/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

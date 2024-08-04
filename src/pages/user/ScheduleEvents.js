@@ -12,8 +12,8 @@ const ScheduleEvents = ({eventType}) => {
     const fetchData = async () => {
       try {
         const url = eventType === 'Public'
-        ? `http://localhost:5209/api/Event/get/scheduled/pub/ByuserId?userId=${auth.userId}`
-         : `http://localhost:5209/api/Event/get/scheduled/pvt/ByuserId?userId=${auth.userId}`;
+        ? `https://eventmanagementproject20240804213240.azurewebsites.net/api/Event/get/scheduled/pub/ByuserId?userId=${auth.userId}`
+         : `https://eventmanagementproject20240804213240.azurewebsites.net/api/Event/get/scheduled/pvt/ByuserId?userId=${auth.userId}`;
         const response = await axios.get(url);
         setEvents(response.data);
       } catch (error) {

@@ -20,8 +20,8 @@ const UserQuotationResponse = ({ eventType }) => {
       try {
         const apiUrl =
           eventType === "Public"
-            ? `http://localhost:5209/api/Quotation/pub/response/ByuserId?userId=${auth.userId}`
-            : `http://localhost:5209/api/Quotation/pvt/response/ByuserId?userId=${auth.userId}`
+            ? `https://eventmanagementproject20240804213240.azurewebsites.net/api/Quotation/pub/response/ByuserId?userId=${auth.userId}`
+            : `https://eventmanagementproject20240804213240.azurewebsites.net/api/Quotation/pvt/response/ByuserId?userId=${auth.userId}`
 
 
         const response = await axios.get(apiUrl);
@@ -44,7 +44,7 @@ const UserQuotationResponse = ({ eventType }) => {
     };
 
     try {
-      const response = await axios.post('http://localhost:5209/api/Event/add/scheduled/pub', data);
+      const response = await axios.post('https://eventmanagementproject20240804213240.azurewebsites.net/api/Event/add/scheduled/pub', data);
       toast.success('Event scheduled successfully');
       setIsEventScheduled(true);  
       setIsConfirmed(true);
@@ -69,7 +69,7 @@ const UserQuotationResponse = ({ eventType }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5209/api/Event/add/scheduled/pvt",
+        "https://eventmanagementproject20240804213240.azurewebsites.net/api/Event/add/scheduled/pvt",
         eventData
       );
       toast.success("Event scheduled successfully");

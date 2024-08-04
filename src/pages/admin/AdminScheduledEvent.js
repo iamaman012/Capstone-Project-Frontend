@@ -10,8 +10,8 @@ const AdminScheduledEvent = ({eventType}) => {
     const fetchScheduledEvents = async () => {
       try {
         const url = eventType === 'Public'
-        ? `http://localhost:5209/api/Event/getAll/scheduled/pub`
-        : 'http://localhost:5209/api/Event/get/scheduled/pvt';
+        ? `https://eventmanagementproject20240804213240.azurewebsites.net/api/Event/getAll/scheduled/pub`
+        : 'https://eventmanagementproject20240804213240.azurewebsites.net/Event/get/scheduled/pvt';
         const response = await axios.get(url);
         setScheduledEvents(response.data);
       } catch (error) {

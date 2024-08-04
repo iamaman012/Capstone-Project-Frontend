@@ -12,7 +12,7 @@ const Tickets = () => {
   useEffect(() => {
     const fetchTickets = async () => {
       try {
-        const response = await axios.get(`http://localhost:5209/api/Ticket/get/byUserId?userId=${auth.userId}`);
+        const response = await axios.get(`https://eventmanagementproject20240804213240.azurewebsites.net/api/Ticket/get/byUserId?userId=${auth.userId}`);
         setTickets(response.data);
       } catch (error) {
         console.error('Error fetching tickets:', error);

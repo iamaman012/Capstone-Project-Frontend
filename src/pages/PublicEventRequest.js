@@ -89,7 +89,7 @@ const PublicEventRequest = () => {
     }
     if (validate()) {
       try {
-        const response = await axios.post('http://localhost:5209/api/Quotation/add/pub', formData);
+        const response = await axios.post('https://eventmanagementproject20240804213240.azurewebsites.net/api/Quotation/add/pub', formData);
         console.log(response.data);
         toast.success('Event Request Submitted Successfully');
         setFormData(initialFormData); // Clear the form
